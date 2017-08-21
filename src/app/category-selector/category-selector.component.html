@@ -1,0 +1,5 @@
+<p>
+  <select name="Categories" [size]="options.length" (change)="onChange($event.target.value)">
+    <option *ngFor="let option of this.options" [value]="option">{{option}}</option>
+  </select>
+</p>

@@ -1,0 +1,11 @@
+<p>
+  <select #select [size]="5" (change)="onChange($event.target.value)">
+    <option *ngFor="let img_item of img_list">{{img_item}}</option>
+  </select>
+  <button (click)="clickPrev()">Prev</button>
+  <button (click)="clickNext()">Next</button>
+  <button (click)="switchDraw()">Draw</button>
+  <button (click)="switchResize()">Resize</button>
+  <button (click)="deleteBox()">Delete</button>
+  <button (click)="saveBoxes()">Save</button>
+</p>

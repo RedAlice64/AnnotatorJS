@@ -1,0 +1,29 @@
+<p>
+  <svg [attr.height]="img_height" [attr.width]="img_width"
+       (mousedown)="this.onMouseDown($event)"
+       (mousemove)="this.onMouseMove($event)"
+       (mouseup)="this.onMouseUp()">
+    <image [attr.height]="img_height"
+           [attr.width]="img_width"
+           [attr.xlink:href] = "img"/>
+    <rect *ngFor="let box of boxes"
+          [attr.id]="box.id"
+          [attr.x]="box.posX"
+          [attr.y]="box.posY"
+          [attr.height]="box.height"
+          [attr.width]="box.width"
+          [attr.style]="box.style | safe: 'style'"
+          (mouseup)="box.onMouseUp()"
+          (mousemove)="box.onMouseMove($event)"
+          (mousedown)="box.onMouseDown($event)"></rect>
+    <rect *ngIf="this.current_box"
+          [attr.x]="this.current_box.posX"
+          [attr.y]="this.current_box.posY"
+          [attr.height]="this.current_box.height"
+          [attr.width]="this.current_box.width"
+          [attr.style]="this.current_box.style |safe: 'style'"
+          (mouseup)="this.current_box.onMouseUp()"
+          (mousemove)="this.current_box.onMouseMove($event)"
+          (mousedown)="this.current_box.onMouseDown($event)"></rect>
+  </svg>
+</p>
