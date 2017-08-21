@@ -1,3 +1,14 @@
 <h1>
-  {{title}}
+  <app-main-canvas #canvas
+                   [img]="img"
+                   [img_height]="img_height"
+                   [img_width]="img_width"
+                   [is_drawbox]="is_draw"
+                   [label]="label"></app-main-canvas>
+  <app-category-selector [options]="category_list" (onSelect)="onCategorySelect($event)"></app-category-selector>
+  <app-image-selector [img_list]="img_list"
+                      (onSelect)="onImageSelect($event)"
+                      (onSwitchDraw)="onBoxSwitchDraw($event)"
+                      (onDelete)="canvas.deleteBox()" (onSave)="saveBoundingBoxes()"></app-image-selector>
+  <app-label-selector [labels]="category_list" (onSelect)="onLabelSelect($event)"></app-label-selector>
 </h1>
