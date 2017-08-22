@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
   constructor(private googleStorage: GoogleStorageService) { }
 
   onImageSelect(image_selected: string) {
+    this.filename = image_selected;
     this.googleStorage.getImg(image_selected).then(img => {
       this.img = 'data:image/jpg;base64,' + img;
     });
@@ -47,7 +48,6 @@ export class AppComponent implements OnInit {
       this.img_width = temp_image.width;
       this.img_height = temp_image.height;
     };
-    this.filename = image_selected;
     this.canvas.clearBox();
     this.googleStorage.loadXML(this.XMLFilename).then( result => this.canvas.loadBoxes(result.annotation.object));
   }

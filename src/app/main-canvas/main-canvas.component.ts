@@ -63,6 +63,7 @@ export class MainCanvasComponent implements OnInit {
 
   clearBox() {
     this.boxes = [];
+    this.current_box = null;
   }
 
   loadBoxes(big_object: any) {
